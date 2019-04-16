@@ -25,6 +25,6 @@ end
 
 
 #response = PostApi.post(PostApi.horoscope_path, query: { sign: 'virgo', day: 'today'  })
-binding.pry
+# binding.pry
 
 "wut"
