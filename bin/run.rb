@@ -1,15 +1,27 @@
 require_relative '../config/environment'
+require_relative '../lib/welcome_user'
+require_relative '../lib/logged_user'
 require 'rest-client'
 require 'json'
 require 'pry'
 require 'zodiac'
 require 'date'
 
+@current_username = ""
 
-response_string = RestClient.post('https://aztro.sameerkumar.website/', :sign => 'aries', :day => 'today'
-response_hash = JSON.parse(response_string)
+def set_user(username)
+  @current_username = username
+end
 
-binding.pry
+def get_user
+  @current_username
+end
+
+welcome_message
+
+commands_message
+
+get_user_input
 
 def get_name_from_user
   puts "Please enter your name"
@@ -29,10 +41,11 @@ def get_sign_for_user
 end
 
 
-def whoami?
-  self.name
-end
+# def whoami?
+#   self.name
+# end
 
+# binding.pry
 # def change_user
 #
 # end

@@ -17,6 +17,7 @@ GEM
     concurrent-ruby (1.1.5)
     domain_name (0.5.20180417)
       unf (>= 0.0.5, < 1.0.0)
+    funtimes (0.4.0)
     http-cookie (1.0.3)
       domain_name (~> 0.5)
     httparty (0.16.4)
@@ -60,6 +61,9 @@ GEM
     unf (0.1.4)
       unf_ext
     unf_ext (0.0.7.5)
+    zodiac (0.2.10)
+      funtimes
+      i18n
 
 PLATFORMS
   ruby
@@ -72,6 +76,7 @@ DEPENDENCIES
   rest-client
   sinatra-activerecord
   sqlite3
+  zodiac
 
 BUNDLED WITH
    2.0.1
