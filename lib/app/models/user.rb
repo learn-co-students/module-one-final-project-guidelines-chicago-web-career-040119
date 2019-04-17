@@ -75,12 +75,12 @@ class User < ActiveRecord::Base
   # end
 
   #Puts user's total portfolio as Cryptocurrency, Price, Quantity
-  def crypto_holdings
-    puts "Your portfolio holdings are as follows:"
-    portfolio = grouped_crypto_id_arr.map do |crypto|
-      crypto_data = Cryptocurrency.find(crypto[:crypto_id])
-      puts "Cryptocurrency: #{crypto_data.name} | Price: $#{crypto_data.usd.round(2)} | Quantity: #{crypto[:qty]}"
-    end
-  end
+  # def crypto_holdings
+  #   puts "Your portfolio holdings are as follows:"
+  #   portfolio = grouped_crypto_id_arr.map do |crypto|
+  #     crypto_data = Cryptocurrency.find(crypto[:crypto_id])
+  #     puts "Cryptocurrency: #{crypto_data.name} | Price: $#{crypto_data.usd.round(2)} | Quantity: #{crypto[:qty]}"
+  #   end
+  # end
 
 end
