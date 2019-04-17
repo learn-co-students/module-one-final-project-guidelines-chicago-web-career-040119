@@ -39,16 +39,25 @@ def add_horoscopes_to_database
       new_horoscope.save
       #binding.pry
     }
+  else
+    message = "Horoscopes from today already downloaded from THE COSMOS\n".colorize(:blue)
+    slow_print(message)
+    output_spacer
   end
 
 end
 
 def check_horoscope_done_today
-  latest_horoscope_time = Horoscope.last.current_date
-  latest_horoscope_time_array = latest_horoscope_time.to_a[3..5]
-  current_time_array = Time.now.to_a[3..5]
+  # if user has never run this program, return false to populate db
+  if Horoscope.all.count != 0
+    latest_horoscope_time = Horoscope.last.current_date
+    latest_horoscope_time_array = latest_horoscope_time.to_a[3..5]
+    current_time_array = Time.now.to_a[3..5]
 
-  current_time_array == latest_horoscope_time_array
+    current_time_array == latest_horoscope_time_array
+  else
+    return false
+  end
 end
 
 # def can_be_created_with_a_hash_of_attributes

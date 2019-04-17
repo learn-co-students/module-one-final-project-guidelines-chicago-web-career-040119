@@ -1,7 +1,14 @@
+# def slow_print(text)
+#   (0..text.length).each { |num|
+#     print text[num]
+#     sleep(0.04)
+#   }
+# end
+
 def slow_print(text)
   (0..text.length).each { |num|
     print text[num]
-    sleep(0.04)
+    sleep(0)
   }
 end
 
@@ -13,21 +20,20 @@ def output_spacer
 end
 
 def welcome_message
-  message = "Welcome to the Virtual Horoscope Reader\n"
+  message = "Welcome to the Virtual Horoscope Reader\n".colorize(:blue)
   slow_print(message)
   output_spacer
 end
 
 def commands_message
-  message = "Enter 'commands' to see all available commands\n"
+  message = "Enter 'commands' to see all available commands\n".colorize(:blue)
   slow_print(message)
   output_spacer
 end
 
 def log_in_prompt
-  message = "Enter your name to log in and get horoscope\n"
+  message = "Enter 'change user' to log in and then 'get horoscope' to see today's horoscope reading\n".colorize(:blue)
   slow_print(message)
-  output_spacer
 end
 
 

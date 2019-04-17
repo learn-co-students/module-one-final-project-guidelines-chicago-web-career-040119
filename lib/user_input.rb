@@ -1,21 +1,23 @@
-def output_spacer
-  puts "\n"
-  2.times {|i| puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:>"}
-end
+require_relative "../config/environment"
+# def output_spacer
+#   puts "\n"
+#   2.times {|i| puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:>"}
+# end
 
 def get_user_input
   input = ""
   while input != "quit"
-    puts "What command do you want to run?"
+    output_spacer
+    puts "Enter a command".colorize(:yellow)
     input = gets.chomp
     case input
     when "commands"
       list_commands
     when "users"
-      puts User.all
+      list_all_names
     when "new user"
       #we need to create a method for initializing a new user!!!
-      puts "we need to create this method!!!"
+      new_user
     when "whoami?"
       #we need to create a method for initializing a new user!!!
       #code below is pseudo code
@@ -23,6 +25,11 @@ def get_user_input
       who_am_i
     when "change user"
       change_user
+    when "get horoscope"
+        get_my_horoscope
+    else
+      error_message = "That command does not exist\n".colorize(:blue)
+      slow_print(error_message)
     end
   end
 end
@@ -32,7 +39,7 @@ def list_commands
   commands --> list all commands in VHR
   users --> list all registered users
   new user --> create a new user
-  whoami? --> see the current logged in user
+  whoami? --> see the current user logged in
   change user -- switch VHR to another user
   get horoscope --> see your horoscope reading for today
   find horoscope --> see list of your saved horoscopes
@@ -40,7 +47,14 @@ def list_commands
   MAGIC
 
   puts text
-  output_spacer
+end
+
+def all_names
+  User.pluck :name
+end
+
+def list_all_names
+  all_names.each {|name| puts name.colorize(:blue)}
 end
 
 #binding.pry

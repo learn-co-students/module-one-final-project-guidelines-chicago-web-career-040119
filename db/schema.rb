@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2019_04_16_184829) do
 
   create_table "users", force: :cascade do |t|
     t.string "name"
-    t.datetime "birthday"
+    t.string "birthday"
     t.string "sign"
   end
 
