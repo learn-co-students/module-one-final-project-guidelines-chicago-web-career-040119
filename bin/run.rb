@@ -67,24 +67,42 @@ while choice != "Exit"
     end
 
   when "Portfolio Overview"
-    puts "\n"
-    puts "\n"
-    puts "\e[4mBelow is your total portfolio:\e[0m"
-    puts "\n"
-    User.find_by(name: user_name).puts_portfolio_overview
-    puts "\n"
-    puts "\n"
-    choice = wallet_menu
+    if !User.find_by(name: user_name)
+      puts "\n"
+      puts "\n"
+      puts "\x1B[31mPlease create a wallet first, #{user_name}.\e[0m"
+      puts "\n"
+      puts "\n"
+      choice = wallet_menu
+    else
+      puts "\n"
+      puts "\n"
+      puts "\e[4mBelow is your total portfolio:\e[0m"
+      puts "\n"
+      User.find_by(name: user_name).puts_portfolio_overview
+      puts "\n"
+      puts "\n"
+      choice = wallet_menu
+    end
 
   when "Portfolio Worth"
-    puts "\n"
-    puts "\n"
-    puts "\e[4mBelow is your portfolio worth:\e[0m"
-    puts "\n"
-    User.find_by(name: user_name).puts_crypto_usd_values
-    puts "\n"
-    puts "\n"
-    choice = wallet_menu
+    if !User.find_by(name: user_name)
+      puts "\n"
+      puts "\n"
+      puts "\x1B[31mPlease create a wallet first, #{user_name}.\e[0m"
+      puts "\n"
+      puts "\n"
+      choice = wallet_menu
+    else
+      puts "\n"
+      puts "\n"
+      puts "\e[4mBelow is your portfolio worth:\e[0m"
+      puts "\n"
+      User.find_by(name: user_name).puts_crypto_usd_values
+      puts "\n"
+      puts "\n"
+      choice = wallet_menu
+    end
 
   when "Exit"
     choice = "Exit"
@@ -96,7 +114,3 @@ puts "\n"
 puts "\e[1mThanks for using Coin Market App! Goodbye.\e[0m"
 puts "\n"
 puts "\n"
-
-# binding.pry
-#
-# puts "HELLO WORLD"

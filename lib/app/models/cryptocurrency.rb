@@ -43,6 +43,11 @@ class Cryptocurrency < ActiveRecord::Base
     end
   end
 
+  #Helper method to return array of crypto names
+  def self.crypto_names
+    Cryptocurrency.select(:name).map {|crypto| crypto.name}
+  end
+
 
 
 

@@ -27,7 +27,7 @@ end
 
 def get_coin_name
   PROMPT.select("BUY SOMETHING WILL YA!",
-    ["Bitcoin", "Ethereum", "XRP", "Bitcoin Cash", "EOS", "Litecoin", "Binance Coin", "Tether", "Stellar", "Cardano" ])
+    Cryptocurrency.crypto_names)
 end
 
 def get_coin_qty
