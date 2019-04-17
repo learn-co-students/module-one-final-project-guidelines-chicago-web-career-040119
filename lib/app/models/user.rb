@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
     return_hash
   end
 
-
   #Helper method to calculate total of each coin in user's wallets, returns array of hashes .
   def crypto_usd_values
     crypto_quantity.map {|name, qty| {name => Cryptocurrency.find_by(name: name).usd * qty}}
@@ -39,29 +38,6 @@ class User < ActiveRecord::Base
     crypto_name = Cryptocurrency.find_by(percent_change_24hr: highest_change).name
     puts "#{crypto_name}: #{highest_change.round(2)}%"
   end
-
-  # #helper function to sum qty of same cryto_ids
-  # def grouped_crypto_id_arr
-  #   grouped_arr = crypto_id_arr.group_by {|g|g[:crypto_id]}.map {|_,a|{crypto_id: a.first[:crypto_id], qty: a.map {|g| g[:qty]}}}
-  #   grouped_arr.map {|arr| {crypto_id: arr[:crypto_id], qty: arr[:qty].reduce(:+)} }
-  # end
-
-  #helper function to retrieve coin_ids and quantity pairings
-  # def crypto_id_arr
-  #   transactions.map {|transaction| {crypto_id: transaction.coin_id, qty: transaction.quantity}}
-  # end
-
-  #Puts user's total portfolio by coin value in USD, along with total portfolio value in USD.
-  # def crypto_usd_value
-  #   sum = 0
-  #   puts "Your portfolio breakdown is as follows:"
-  #   portfolio = grouped_crypto_id_arr.map do |crypto|
-  #     crypto_data = Cryptocurrency.find(crypto[:crypto_id])
-  #     sum += crypto_data.usd * crypto[:qty]
-  #     puts "#{crypto_data.name}: $#{(crypto_data.usd * crypto[:qty]).round(2)}"
-  #   end
-  #   puts "Total Value: $#{sum.round(2)}"
-  # end
 
   #USER STORY allows user to buy or sell crypto
   def perform_transaction(name, quantity)
