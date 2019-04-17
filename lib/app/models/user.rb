@@ -16,17 +16,6 @@ class User < ActiveRecord::Base
     return_hash
   end
 
-  # def transactions_by_crypto
-  #   transactions.group_by { |t| t.cryptocurrency }
-  # end
-  #
-  # def crypto_quantity_2
-  #   transactions_by_crypto.map { |crypto, transactions|
-  #     crypto.name.to_s => transactions.map { |t|
-  #       t.quantity * crypto.usd
-  #     }.sum
-  #   }
-  # end
 
   #Helper method to calculate total of each coin in user's wallets, returns array of hashes .
   def crypto_usd_values
@@ -48,7 +37,7 @@ class User < ActiveRecord::Base
   def puts_highest_crypto_gain
     highest_change = cryptocurrencies.maximum(:percent_change_24hr)
     crypto_name = Cryptocurrency.find_by(percent_change_24hr: highest_change).name
-    puts "#{crypto_name}: #{highest_change.round(2)} %"
+    puts "#{crypto_name}: #{highest_change.round(2)}%"
   end
 
   # #helper function to sum qty of same cryto_ids
@@ -74,13 +63,10 @@ class User < ActiveRecord::Base
   #   puts "Total Value: $#{sum.round(2)}"
   # end
 
-  #Puts user's total portfolio as Cryptocurrency, Price, Quantity
-  def crypto_holdings
-    puts "Your portfolio holdings are as follows:"
-    portfolio = grouped_crypto_id_arr.map do |crypto|
-      crypto_data = Cryptocurrency.find(crypto[:crypto_id])
-      puts "Cryptocurrency: #{crypto_data.name} | Price: $#{crypto_data.usd.round(2)} | Quantity: #{crypto[:qty]}"
-    end
+  #USER STORY allows user to buy or sell crypto 
+  def perform_transaction(name, quantity)
+    crypto = Cryptocurrency.find_by(name: name)
+    Transaction.create(user_id: self.id, coin_id: crypto.id, quantity:  quantity)
   end
 
 end
