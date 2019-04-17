@@ -77,6 +77,7 @@ Wallets belong to Users
 
 ////Stories////
 A User shall be able to retrieve the total value of all cryptocurrencies in their wallet in USD (Read)
+A User shall be able to retrieve the total value of all cryptocurrencies in their wallet in USD (Read)
 A User shall be able to find the top three cryptocurrencies by price (in USD) in their wallet (Read)
 A User shall be able to find the top three cryptocurrencies by value (in USD) in their wallet (Read)
 A User shall be able to find the top coin by volume in their wallet (Read)

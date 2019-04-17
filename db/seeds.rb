@@ -3,7 +3,7 @@ require_relative '../lib/api_communicator.rb'
 20.times do User.create(name: Faker::Name.name)
 end
 
-20.times do Wallet.create(user_id: rand(1..20), coin_id: rand(1..10), quantity: rand(1..50))
+250.times do Transaction.create(user_id: rand(1..20), coin_id: rand(1..10), quantity: rand(1..50))
 end
 
 data_hash = APICall.get_data

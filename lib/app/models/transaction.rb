@@ -1,4 +1,4 @@
-class Wallet < ActiveRecord::Base
+class Transaction < ActiveRecord::Base
   belongs_to :user
   belongs_to :cryptocurrency
 end

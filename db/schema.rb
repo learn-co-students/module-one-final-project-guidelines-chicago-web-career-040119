@@ -20,14 +20,14 @@ ActiveRecord::Schema.define(version: 20190416153102) do
     t.float  "market_cap"
   end
 
-  create_table "users", force: :cascade do |t|
-    t.string "name"
-  end
-
-  create_table "wallets", force: :cascade do |t|
+  create_table "transactions", force: :cascade do |t|
     t.integer "user_id"
     t.integer "coin_id"
     t.float   "quantity"
+  end
+
+  create_table "users", force: :cascade do |t|
+    t.string "name"
   end
 
 end

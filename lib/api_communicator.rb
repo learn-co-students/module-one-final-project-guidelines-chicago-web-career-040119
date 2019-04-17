@@ -1,3 +1,5 @@
+require_relative "../config.rb"
+
 class APICall
 
   def self.get_data
@@ -9,7 +11,7 @@ class APICall
     }
     headers = {
         'Accepts' => 'application/json',
-        'X-CMC_PRO_API_KEY' => '20b99dfd-44ae-4966-b9de-0a8784f8959b',
+        'X-CMC_PRO_API_KEY' => APIKey.api_key,
         "params" => parameters
     }
 
