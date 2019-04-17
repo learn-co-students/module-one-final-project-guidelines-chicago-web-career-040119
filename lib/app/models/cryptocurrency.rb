@@ -14,6 +14,17 @@ class Cryptocurrency < ActiveRecord::Base
     formated_input = ticker.upcase
     Cryptocurrency.find_by(ticker: formated_input) || "Please enter a viable search ticker."
   end
-
+  #USER STORY METHOD - returns overall look at current market
+  def self.market_view
+    Cryptocurrency.select do |crypto|
+      puts "#{crypto.name}: Price $#{crypto.usd.round(2)} | MarketCap #{(crypto.market_cap/1000000).round(1)} B | 24hrChange #{crypto.percent_change_24hr.round(2)}%"
+    end
+  end
+  #USER STORY METHOD - returns overall look ordered by biggest gainers
+  def self.market_view_by_24hr_gain
+    Cryptocurrency.order(percent_change_24hr: :desc).select do |crypto|
+      puts "#{crypto.name}: Price $#{crypto.usd.round(2)} | 24hrChange #{crypto.percent_change_24hr.round(2)}%"
+    end
+  end
 
 end
