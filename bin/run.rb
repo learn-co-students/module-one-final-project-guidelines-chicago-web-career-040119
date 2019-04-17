@@ -6,6 +6,8 @@ require 'json'
 require 'pry'
 require 'zodiac'
 require 'date'
+require 'colorize'
+require 'colorized_string'
 
 @current_username = ""
 
@@ -17,9 +19,13 @@ def get_user
   @current_username
 end
 
+add_horoscopes_to_database
+
 welcome_message
 
 commands_message
+
+log_in_prompt
 
 get_user_input
 

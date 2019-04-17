@@ -1,7 +1,3 @@
-require 'pry'
-require_relative './logged_user'
-
-
 def output_spacer
   puts "\n"
   2.times {|i| puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:>"}
@@ -24,8 +20,7 @@ def get_user_input
       #we need to create a method for initializing a new user!!!
       #code below is pseudo code
       #User.all.find_by name: = logged_user
-      puts "we need to create this method!!!"
-      logged_user_ye
+      who_am_i
     when "change user"
       change_user
     end

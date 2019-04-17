@@ -10,3 +10,4 @@ gem 'rake'
 gem "rest-client"
 gem "httparty"
 gem "zodiac"
+gem "colorize"

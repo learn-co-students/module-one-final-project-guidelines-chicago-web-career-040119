@@ -1,4 +1,4 @@
-class Readings < ActiveRecord::Base
+class Reading < ActiveRecord::Base
   belongs_to :user
   belongs_to :horoscope
 
