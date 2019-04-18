@@ -61,6 +61,7 @@ while choice != "Exit"
       puts "\n"
       puts "\n"
       puts "\x1B[32m#{crypto_arr[1]} #{crypto_arr[0]} purchased successfully!\e[0m"
+      `say cha ching`
       puts "\n"
       puts "\n"
       choice = wallet_menu
