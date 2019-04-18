@@ -9,16 +9,16 @@ def match_me_cosmos
     slow_print(message)
   else
     matched_sign = my_reading_today.horoscope.compatibility
-    message = "Your ideal match today is a #{matched_sign}\n".colorize(:blue)
+    message = "Your ideal match today is a #{matched_sign}\n".colorize(:magenta)
     slow_print(message)
-    message2 = "Searching for match...\n"
+    message2 = "Searching for match...\n".colorize(:magenta)
     slow_print(message2)
-    slow_print("...\n")
-    slow_print(".....\n")
-    slow_print(".......\n")
+    slow_print("...\n".colorize(:magenta))
+    slow_print(".....\n".colorize(:magenta))
+    slow_print(".......\n".colorize(:magenta))
     array_matches = User.where('sign = ?', matched_sign)
     if array_matches == []
-      sad_message = "The cosmos couldn't find a match for you :.(\n"
+      sad_message = "The cosmos couldn't find a match for you :.(\n".colorize(:light_blue)
       slow_print(sad_message)
     else
       my_match = array_matches.sample

@@ -12,6 +12,10 @@ def new_user
     name = gets.chomp
     if name == "quit"
       break
+    elsif all_names.include?(name) == true
+      error_message3 = "Account with that name already exists!\n".colorize(:red)
+      slow_print(error_message3)
+      next
     end
     message2 = "Please enter your birthday MM/DD\n".colorize(:yellow)
     slow_print(message2)
