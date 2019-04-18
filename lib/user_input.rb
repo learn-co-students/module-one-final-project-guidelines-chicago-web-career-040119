@@ -27,6 +27,8 @@ def get_user_input
       change_user
     when "get horoscope"
         get_my_horoscope
+    when "quit"
+      break
     else
       error_message = "That command does not exist\n".colorize(:blue)
       slow_print(error_message)
@@ -43,6 +45,9 @@ def list_commands
   change user -- switch VHR to another user
   get horoscope --> see your horoscope reading for today
   find horoscope --> see list of your saved horoscopes
+  match me --> find a cosmologically determined blind date
+  my color --> the cosmos thinks you look great in this color today
+  lucky number --> see your cosmologically chosen lucky number
   quit --> quit the program
   MAGIC
 

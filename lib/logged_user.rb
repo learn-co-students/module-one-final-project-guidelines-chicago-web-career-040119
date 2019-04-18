@@ -21,8 +21,14 @@ require_relative "../config/environment"
 # end
 
 def who_am_i
-  message = "#{@current_username} is logged in\n".colorize(:blue)
-  slow_print(message)
+  if @current_username != ""
+    message = "#{@current_username} is logged in\n".colorize(:blue)
+    slow_print(message)
+  else
+    message2 = "No user is currently logged in\n".colorize(:blue)
+    slow_print(message2)
+  end
+
 end
 
 def change_user

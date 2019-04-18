@@ -16,7 +16,6 @@ def new_user
  User.create(name: name, birthday: birthday, sign: sign)
 end
 
-
 def validator(bday)
  month = bday.split('/')[0].to_i
  day = bday.split('/')[1].to_i

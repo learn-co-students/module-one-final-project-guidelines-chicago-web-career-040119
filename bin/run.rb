@@ -25,6 +25,8 @@ welcome_message
 
 commands_message
 
+who_am_i
+
 log_in_prompt
 
 get_user_input
