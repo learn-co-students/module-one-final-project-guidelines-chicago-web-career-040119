@@ -33,3 +33,11 @@ def get_sign(month, day, year=1990)
  sign = Date.new(year, month, day).zodiac_sign
  sign
 end
+
+def all_names
+  User.pluck :name
+end
+
+def list_all_names
+  all_names.each {|name| puts name.colorize(:blue)}
+end

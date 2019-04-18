@@ -36,7 +36,9 @@ def change_user
 
   while true
     message = "please enter user name you wish to switch to\n".colorize(:yellow)
+    message2 = "enter 'users' to see list of registered users or 'quit' to not change user\n".colorize(:yellow)
     slow_print(message)
+    slow_print(message2)
     new_user_name = gets.chomp
 
     if all_names.include?(new_user_name) == true
@@ -44,13 +46,19 @@ def change_user
 
       puts "SUCCESS!".colorize(:blue)
       break
+    elsif new_user_name == "quit"
+      break
+    elsif new_user_name == "users"
+      list_all_names
     else
       error_message = "No account found with that name!\n"
       slow_print(error_message)
     end
   end
 
-  slow_print("logging into #{get_user}'s account\n".colorize(:blue))
+  if get_user != ""
+    slow_print("logging into #{get_user}'s account\n".colorize(:blue))
+  end
 end
 
 # def test_zodiac

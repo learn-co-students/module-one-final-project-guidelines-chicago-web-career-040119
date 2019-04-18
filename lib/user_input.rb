@@ -16,17 +16,18 @@ def get_user_input
     when "users"
       list_all_names
     when "new user"
-      #we need to create a method for initializing a new user!!!
       new_user
     when "whoami?"
-      #we need to create a method for initializing a new user!!!
-      #code below is pseudo code
-      #User.all.find_by name: = logged_user
       who_am_i
     when "change user"
       change_user
+      create_my_reading
     when "get horoscope"
-        get_my_horoscope
+      print_horoscope_description
+    when "find horoscope"
+      find_horoscope
+    when "match me"
+      match_me_cosmos
     when "quit"
       break
     else
@@ -52,14 +53,6 @@ def list_commands
   MAGIC
 
   puts text
-end
-
-def all_names
-  User.pluck :name
-end
-
-def list_all_names
-  all_names.each {|name| puts name.colorize(:blue)}
 end
 
 #binding.pry
