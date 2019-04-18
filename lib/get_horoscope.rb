@@ -24,8 +24,6 @@ require_relative "./welcome_user"
 #   #binding.pry
 # end
 
-@current_username = "Jack"
-
 def current_user
   User.find_by name: @current_username
 end
@@ -38,6 +36,17 @@ def create_my_reading
   latest_horoscope_id = latest_horoscope.id
 
   Reading.create(user_id: current_user_id, horoscope_id: latest_horoscope_id)
+end
+
+def check_reading_created
+  current_time_array = Time.now.to_a[3..5]
+  latest_reading = current_user.readings.last
+  latest_reading_time = latest_reading.horoscope.current_date.to_a[3..5]
+  if latest_reading_time == current_time_array
+    return true
+  else
+    return false
+  end
 end
 
 def my_reading_today
@@ -108,5 +117,3 @@ def find_horoscope
   end
 
 end
-
-#binding.pry

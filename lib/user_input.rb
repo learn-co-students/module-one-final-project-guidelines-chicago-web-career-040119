@@ -19,9 +19,11 @@ def get_user_input
       new_user
     when "whoami?"
       who_am_i
-    when "change user"
+    when "change user", "log in"
       change_user
-      create_my_reading
+      if @current_username != "" && check_reading_created != true
+        create_my_reading
+      end
     when "get horoscope"
       print_horoscope_description
     when "find horoscope"
@@ -43,7 +45,7 @@ def list_commands
   users --> list all registered users
   new user --> create a new user
   whoami? --> see the current user logged in
-  change user -- switch VHR to another user
+  change user or log in -- switch VHR to another user
   get horoscope --> see your horoscope reading for today
   find horoscope --> see list of your saved horoscopes
   match me --> find a cosmologically determined blind date

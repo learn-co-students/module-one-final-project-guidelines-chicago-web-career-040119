@@ -1,16 +1,16 @@
-def slow_print(text)
-  (0..text.length).each { |num|
-    print text[num]
-    sleep(0.04)
-  }
-end
-
 # def slow_print(text)
 #   (0..text.length).each { |num|
 #     print text[num]
-#     sleep(0)
+#     sleep(0.04)
 #   }
 # end
+
+def slow_print(text)
+  (0..text.length).each { |num|
+    print text[num]
+    sleep(0.01)
+  }
+end
 
 def output_spacer
   # puts "\n"

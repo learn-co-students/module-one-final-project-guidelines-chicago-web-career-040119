@@ -41,6 +41,10 @@ def change_user
     slow_print(message2)
     new_user_name = gets.chomp
 
+    # if new_user_name == "quit"
+    #   break
+    # end
+
     if all_names.include?(new_user_name) == true
       set_user(new_user_name)
 
@@ -51,7 +55,7 @@ def change_user
     elsif new_user_name == "users"
       list_all_names
     else
-      error_message = "No account found with that name!\n"
+      error_message = "No account found with that name!\n".colorize(:red)
       slow_print(error_message)
     end
   end
