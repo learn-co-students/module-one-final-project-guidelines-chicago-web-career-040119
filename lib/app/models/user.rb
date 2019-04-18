@@ -2,6 +2,9 @@ class User < ActiveRecord::Base
   has_many :transactions
   has_many :cryptocurrencies, through: :transactions
 
+
+  ############# Helper Methods #############
+
   #Helper method that returns the crypto name and corresponding balance for user.
   def crypto_quantity
     return_hash = {}
@@ -18,8 +21,12 @@ class User < ActiveRecord::Base
 
   #Helper method to calculate total of each coin in user's wallets, returns array of hashes .
   def crypto_usd_values
-    crypto_quantity.map {|name, qty| {name => Cryptocurrency.find_by(name: name).usd * qty}}
+    crypto_quantity.map {|name, qty| {name => Cryptocurrency.last(10).find{|crypto| crypto.name == name}.usd * qty}}
   end
+
+
+
+  ############# Helper Methods #############
 
   #USER STORY METHOD - puts out value of each crypto in USD, along with portfolio total in USD.
   def puts_crypto_usd_values
@@ -29,19 +36,19 @@ class User < ActiveRecord::Base
 
   #USER STORY METHOD - Puts user's total portfolio as Cryptocurrency, Price, Quantity
   def puts_portfolio_overview
-    crypto_quantity.map {|name, qty| puts "#{name}: Price $#{Cryptocurrency.find_by(name: name).usd.round(2)} | Quantity #{qty}"}
+    crypto_quantity.map {|name, qty| puts "#{name}: Price $#{Cryptocurrency.last(10).find{|crypto| crypto.name == name}.usd.round(2)} | Quantity #{qty}"}
   end
 
   #USER STORY METHOD - Puts name and 24 market change of user's cryptocurrency with highest gain.
   def puts_highest_crypto_gain
     highest_change = cryptocurrencies.maximum(:percent_change_24hr)
-    crypto_name = Cryptocurrency.find_by(percent_change_24hr: highest_change).name
+    crypto_name = Cryptocurrency.last(10).find{|crypto| crypto.percent_change_24hr == highest_change}.name
     puts "#{crypto_name}: #{highest_change.round(2)}%"
   end
 
   #USER STORY allows user to buy or sell crypto
   def perform_transaction(name, quantity)
-    crypto = Cryptocurrency.find_by(name: name)
+    crypto = Cryptocurrency.last(10).find{|crypto| crypto.name == name}
     Transaction.create(user_id: self.id, coin_id: crypto.id, quantity:  quantity)
   end
 

@@ -3,25 +3,25 @@ require_relative '../config/environment'
 user_name = welcome
 choice = main_menu(user_name)
 
-# if choice == "View Market"
-#   choice = market_menu
-# end
-#
-# if choice =
-
+#Case statement within while loop to control TTY prompts.
 while choice != "Exit"
   case choice
+
   when "View Market"
     choice = market_menu
+
   when "View Wallet"
     choice = wallet_menu
+
   when "Main Menu"
     choice = main_menu(user_name)
+
   when "View Total Market"
     puts "\n"
     Cryptocurrency.market_view
     puts "\n"
     choice = market_menu
+
   when "View Total Market by 24hr Performance"
     puts "\n"
     Cryptocurrency.market_view_by_24hr_gain
@@ -107,10 +107,27 @@ while choice != "Exit"
   when "Exit"
     choice = "Exit"
   end
+
 end
 
 puts "\n"
 puts "\n"
 puts "\e[1mThanks for using Coin Market App! Goodbye.\e[0m"
+puts "\n"
+puts "
+────██──██─────
+███████████▄───
+──███████████▄─
+──███────▀████─
+──███──────███─
+──███────▄███▀─
+──█████████▀───
+──███████████▄─
+──███─────▀████
+──███───────███
+──███─────▄████
+──████████████─
+████████████▀──
+────██──██─────"
 puts "\n"
 puts "\n"
