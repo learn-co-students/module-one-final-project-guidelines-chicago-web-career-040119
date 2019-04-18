@@ -35,6 +35,7 @@ def get_coin_qty
   if qty != 0.0
     return qty
   else
+    puts `clear`
     puts "\n"
     puts "\n"
     puts "\x1B[31mThat didn't seem to be a valid number!\e[0m"
