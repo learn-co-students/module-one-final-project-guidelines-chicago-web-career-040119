@@ -1,7 +1,7 @@
 def slow_print(text)
   (0..text.length).each { |num|
     print text[num]
-    sleep(0.03)
+    sleep(0.035)
   }
 end
 
