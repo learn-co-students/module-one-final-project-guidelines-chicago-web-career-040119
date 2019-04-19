@@ -22,8 +22,8 @@ def match_me_cosmos
       slow_print(sad_message)
     else
       my_match = array_matches.sample
-      match_message = "The stars have aligned...\n"
-      match_message2 = "#{my_match.name} is your match!\n"
+      match_message = "The stars have aligned...\n".colorize(:magenta)
+      match_message2 = "#{my_match.name} is your match!\n".colorize(:magenta)
       slow_print(match_message)
       slow_print(match_message2)
     end

@@ -30,6 +30,10 @@ def get_user_input
       find_horoscope
     when "match me"
       match_me_cosmos
+    when "my color"
+      find_color
+    when "lucky number"
+      lucky_number
     when "quit"
       break
     else

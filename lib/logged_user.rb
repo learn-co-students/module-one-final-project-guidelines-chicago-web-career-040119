@@ -48,6 +48,8 @@ def change_user
     if all_names.include?(new_user_name) == true
       set_user(new_user_name)
 
+      output_spacer
+
       puts "SUCCESS!".colorize(:blue)
       break
     elsif new_user_name == "quit"
