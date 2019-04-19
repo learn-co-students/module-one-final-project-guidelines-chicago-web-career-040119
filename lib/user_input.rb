@@ -1,4 +1,5 @@
 require_relative "../config/environment"
+require_relative "./models/horoscope"
 # def output_spacer
 #   puts "\n"
 #   2.times {|i| puts "~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~:>"}

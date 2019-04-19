@@ -1,7 +1,4 @@
 require_relative "../config/environment"
-# require "pry"
-# require "zodiac"
-# require "date"
 require_relative './welcome_user'
 require_relative './models/user'
 
@@ -29,6 +26,7 @@ def new_user
 
       ### Change user to newly created user. Code below
       set_user(new_user.name)
+      create_my_reading
       slow_print("logging into #{new_user.name}'s account\n".colorize(:blue))
       break
     end
