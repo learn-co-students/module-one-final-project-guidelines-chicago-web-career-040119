@@ -1,3 +1,4 @@
+require 'pry'
 require_relative "../config/environment"
 require_relative "./models/user"
 require_relative "./models/reading"
@@ -20,7 +21,9 @@ end
 
 def check_reading_created
   current_time_array = Time.now.to_a[3..5]
-
+  if current_user.readings == []
+    return false
+  end
   latest_reading = current_user.readings.last
   latest_reading_time = latest_reading.horoscope.current_date.to_a[3..5]
   if latest_reading_time == current_time_array
