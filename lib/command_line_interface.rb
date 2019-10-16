@@ -16,13 +16,19 @@ end
 
 def wallet_menu
   PROMPT.select("Welcome to the Market Portal! Please select an option.",
-    ["Create Wallet", "Buy Crypto", "Portfolio Overview", "Portfolio Worth", "Main Menu" ])
+    ["Create Wallet", "Buy Crypto", "Sell Crypto", "Portfolio Overview", "Portfolio Worth", "Main Menu" ])
 end
 
 def buy_crypto
   name = get_coin_name
   quantity = get_coin_qty
   return_arr = [name, quantity]
+end
+
+def sell_crypto
+  name = get_coin_name
+  quantity = get_coin_qty
+  return_arr = [name, -quantity]
 end
 
 def get_coin_name

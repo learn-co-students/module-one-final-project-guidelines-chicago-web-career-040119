@@ -73,6 +73,25 @@ while choice != "Exit"
       choice = wallet_menu
     end
 
+  when "Sell Crypto"
+    puts `clear`
+    if !User.find_by(name: user_name)
+      puts "\x1B[31mPlease create a wallet first, #{user_name}.\e[0m"
+      puts "\n"
+      puts "\n"
+      choice = wallet_menu
+    else
+      crypto_arr = sell_crypto
+      User.find_by(name: user_name).perform_transaction(crypto_arr[0], crypto_arr[1])
+      puts "\n"
+      puts "\n"
+      puts "\x1B[32m#{-crypto_arr[1]} #{crypto_arr[0]} sold successfully!\e[0m"
+      `say buh bye`
+      puts "\n"
+      puts "\n"
+      choice = wallet_menu
+    end
+
 
   when "Portfolio Overview"
     puts `clear`
